@@ -2,12 +2,13 @@ import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { map, Observable } from 'rxjs';
 import { AxiosResponse } from "axios";
+import { Driver } from './entities/driver.entity';
 
 @Injectable()
 export class DriversService {
   constructor(private readonly httpService: HttpService) {}
 
-  async findAll() : Promise<Observable<AxiosResponse<any>>> {
+  async findAll() : Promise<Observable<AxiosResponse<Driver>>> {
     return await this.httpService.get("http://ergast.com/api/f1/drivers.json?limit=1000", {
       headers: {
         'Accept': 'application/json',
@@ -17,7 +18,7 @@ export class DriversService {
     );
   }
 
-  async findById(id: string) : Promise<Observable<AxiosResponse<any>>>{
+  async findById(id: string) : Promise<Observable<AxiosResponse<Driver>>>{
     return await this.httpService.get("http://ergast.com/api/f1/drivers/" + id + ".json", {
       headers: {
         'Accept': 'application/json',
@@ -27,7 +28,7 @@ export class DriversService {
     );
   }
 
-  async findByYear(year: number) : Promise<Observable<AxiosResponse<any>>>{
+  async findByYear(year: number) : Promise<Observable<AxiosResponse<Driver>>>{
     return await this.httpService.get("http://ergast.com/api/f1/" + year +"/drivers.json", {
       headers: {
         'Accept': 'application/json',
@@ -37,7 +38,7 @@ export class DriversService {
     );
   }
 
-  async findByYearAndRound(year: number, round: number) : Promise<Observable<AxiosResponse<any>>>{
+  async findByYearAndRound(year: number, round: number) : Promise<Observable<AxiosResponse<Driver>>>{
     return await this.httpService.get("http://ergast.com/api/f1/" + year +"/" + round + "/drivers.json", {
       headers: {
         'Accept': 'application/json',
