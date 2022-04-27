@@ -39,6 +39,14 @@ localhost:4800/constructors/year/:year
 localhost:4800/constructors/:year/:round
 ````
 
+:milky_way: CIRCUITS :milky_way:  
+````shell
+localhost:4800/circuits
+localhost:4800/circuits/:id
+localhost:4800/circuits/year/:year
+localhost:4800/circuits/:year/:round
+````
+
 ## Informations complémentaires
 
 1. :blue_book: Projet : NestJs :blue_book:
