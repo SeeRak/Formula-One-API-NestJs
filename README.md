@@ -25,6 +25,14 @@ localhost:4800/drivers/year/:year
 localhost:4800/drivers/:year/:round
 ````
 
+:milky_way: CONSTRUCTEURS :milky_way:  
+````shell
+localhost:4800/constructors
+localhost:4800/constructors/:id
+localhost:4800/constructors/year/:year
+localhost:4800/constructors/:year/:round
+````
+
 ## Informations complémentaires
 
 1. :blue_book: Projet : NestJs :blue_book:
