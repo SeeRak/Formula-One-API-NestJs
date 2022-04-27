@@ -14,6 +14,12 @@
 ```shell script
 npm start
 ```
+## SWAGGER
+:man_technologist: Dans votre navigateur préféré, taper la commande suivante: :man_technologist:
+```shell script
+http://localhost:4800/api
+```
+:abacus: Cela vous permettra de voir toutes les routes de l'api ainsi que les données en réponse :abacus:
 
 ## Routes
 
@@ -23,6 +29,14 @@ localhost:4800/drivers
 localhost:4800/drivers/:id
 localhost:4800/drivers/year/:year
 localhost:4800/drivers/:year/:round
+````
+
+:milky_way: CONSTRUCTEURS :milky_way:  
+````shell
+localhost:4800/constructors
+localhost:4800/constructors/:id
+localhost:4800/constructors/year/:year
+localhost:4800/constructors/:year/:round
 ````
 
 ## Informations complémentaires
