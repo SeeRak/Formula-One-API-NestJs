@@ -3,9 +3,10 @@ import { LoggerMiddleware } from './logger.middleware';
 import { ConstructorsModule } from './constructors/constructors.module';
 import { DriversModule } from './drivers/drivers.module';
 import { CircuitsModule } from './circuits/circuits.module';
+import { ResultsModule } from './results/results.module';
 
 @Module({
-  imports: [DriversModule, ConstructorsModule, CircuitsModule],
+  imports: [DriversModule, ConstructorsModule, CircuitsModule, ResultsModule],
   controllers: [],
   providers: [],
 })
