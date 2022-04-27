@@ -2,9 +2,10 @@ import { MiddlewareConsumer, Module, RequestMethod } from '@nestjs/common';
 import { LoggerMiddleware } from './logger.middleware';
 import { ConstructorsModule } from './constructors/constructors.module';
 import { DriversModule } from './drivers/drivers.module';
+import { CircuitsModule } from './circuits/circuits.module';
 
 @Module({
-  imports: [DriversModule, ConstructorsModule],
+  imports: [DriversModule, ConstructorsModule, CircuitsModule],
   controllers: [],
   providers: [],
 })
