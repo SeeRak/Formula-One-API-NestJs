@@ -1,26 +1,50 @@
+import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
-import { CreateConstructorDto } from './dto/create-constructor.dto';
-import { UpdateConstructorDto } from './dto/update-constructor.dto';
+import { map, Observable } from 'rxjs';
+import { AxiosResponse } from "axios";
+import { Constructor } from './entities/constructor.entity';
 
 @Injectable()
 export class ConstructorsService {
-  create(createConstructorDto: CreateConstructorDto) {
-    return 'This action adds a new constructor';
+  constructor(private readonly httpService: HttpService) {}
+
+  async findAll() : Promise<Observable<AxiosResponse<Constructor>>> {
+    return await this.httpService.get("http://ergast.com/api/f1/constructors.json?limit=1000", {
+      headers: {
+        'Accept': 'application/json',
+      }
+    }).pipe(
+      map(res => res.data.MRData.ConstructorTable.Constructors)
+    );
   }
 
-  findAll() {
-    return `This action returns all constructors`;
+  async findById(id: string) : Promise<Observable<AxiosResponse<Constructor>>>{
+    return await this.httpService.get("http://ergast.com/api/f1/constructors/" + id + ".json", {
+      headers: {
+        'Accept': 'application/json',
+      }
+    }).pipe(
+      map(res => res.data.MRData.ConstructorTable.Constructors)
+    );
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} constructor`;
+  async findByYear(year: number) : Promise<Observable<AxiosResponse<Constructor>>>{
+    return await this.httpService.get("http://ergast.com/api/f1/" + year +"/constructors.json", {
+      headers: {
+        'Accept': 'application/json',
+      }
+    }).pipe(
+      map(res => res.data.MRData.ConstructorTable.Constructors)
+    );
   }
 
-  update(id: number, updateConstructorDto: UpdateConstructorDto) {
-    return `This action updates a #${id} constructor`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} constructor`;
+  async findByYearAndRound(year: number, round: number) : Promise<Observable<AxiosResponse<Constructor>>>{
+    return await this.httpService.get("http://ergast.com/api/f1/" + year +"/" + round + "/constructors.json", {
+      headers: {
+        'Accept': 'application/json',
+      }
+    }).pipe(
+      map(res => res.data.MRData.ConstructorTable.Constructors)
+    );
   }
 }

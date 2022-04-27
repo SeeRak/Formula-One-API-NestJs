@@ -1,34 +1,27 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { ConstructorsService } from './constructors.service';
-import { CreateConstructorDto } from './dto/create-constructor.dto';
-import { UpdateConstructorDto } from './dto/update-constructor.dto';
 
 @Controller('constructors')
 export class ConstructorsController {
   constructor(private readonly constructorsService: ConstructorsService) {}
 
-  @Post()
-  create(@Body() createConstructorDto: CreateConstructorDto) {
-    return this.constructorsService.create(createConstructorDto);
-  }
-
   @Get()
-  findAll() {
-    return this.constructorsService.findAll();
+  async findAll() {
+    return await this.constructorsService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.constructorsService.findOne(+id);
+  async findById(@Param('id') id: string) {
+    return await this.constructorsService.findById(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateConstructorDto: UpdateConstructorDto) {
-    return this.constructorsService.update(+id, updateConstructorDto);
+  @Get('/year/:year')
+  async findByYear(@Param('year') year: number) {
+    return await this.constructorsService.findByYear(year);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.constructorsService.remove(+id);
+  @Get(':year/:round')
+  async findByYearAndRound(@Param('year') year: number, @Param('round') round: number) {
+    return await this.constructorsService.findByYearAndRound(year, round);
   }
 }
