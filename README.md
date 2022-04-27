@@ -19,6 +19,7 @@ npm start
 ```shell script
 http://localhost:4800/api
 ```
+:abacus:Cela vous permettra de voir toutes les routes de l'api ainsi que les données en réponse:abacus:
 
 ## Routes
 
