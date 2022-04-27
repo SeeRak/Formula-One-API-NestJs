@@ -14,6 +14,11 @@
 ```shell script
 npm start
 ```
+## SWAGGER
+:man_technologist: Dans votre navigateur préféré, taper la commande suivante: :man_technologist:
+```shell script
+http://localhost:4800/api
+```
 
 ## Routes
 
